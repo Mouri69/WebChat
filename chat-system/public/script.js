@@ -1,6 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
     const socket = io();
 
+    socket.on('connect', () => {
+        console.log('Connected to WebSocket server');
+    });
+
+    socket.on('disconnect', () => {
+        console.log('Disconnected from WebSocket server');
+    });
+
     let username = '';
 
     const chatBox = document.getElementById('chat-box');
