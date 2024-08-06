@@ -4,10 +4,15 @@ document.addEventListener('DOMContentLoaded', () => {
     socket.on('connect', () => {
         console.log('Connected to WebSocket server');
     });
-
+    
     socket.on('disconnect', () => {
         console.log('Disconnected from WebSocket server');
     });
+    
+    socket.on('chat message', ({ username: sender, message }) => {
+        console.log('Received message from', sender, ':', message);
+    });
+    
 
     let username = '';
 
